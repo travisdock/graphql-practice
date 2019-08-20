@@ -8,8 +8,8 @@ module Types
       null: false,
       description: "Returns a list of coworkers and their friends"
     
-      def coworkers
-        Coworker.all
-      end
+    def coworkers
+      Coworker.all
+    end
   end
 end

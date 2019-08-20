@@ -5,7 +5,19 @@ module Types
         field :email, String, null: false
         field :lunch_time, String, null: false
         field :friends, [Types::CoworkerType], null: true
-        field :likes, [Types::LikeType], null: true
-        field :dislikes, [Types::DislikeType], null: true
+        field :likes, [String], null: true
+        field :dislikes, [String], null: true
+
+        def likes
+            likes = []
+            object.likes.each { |like| likes << like.title }
+            likes
+        end
+
+        def dislikes
+            dislikes = []
+            object.dislikes.each { |dislike| dislikes << dislike.title }
+            dislikes
+        end
     end
 end
